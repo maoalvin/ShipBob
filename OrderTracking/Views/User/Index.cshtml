@@ -1,0 +1,17 @@
+﻿
+@model List<OrderTrackng.BusinessObjects.UserLogin> 
+<h2>UserDefault</h2>
+<div>
+    <ul>
+        @foreach (var user in Model)
+        {
+        <li>
+            <p>First Name: </p>
+            @Html.Raw(@user.FirstName)
+            <p>Last Name: </p>
+            @Html.Raw(@user.LastName)
+        </li>
+        }
+    </ul>
+</div>
+
