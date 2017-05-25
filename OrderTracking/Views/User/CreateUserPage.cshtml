@@ -7,9 +7,10 @@
 
 @using (Html.BeginForm("CreateUser", "User"))
 {
-    @Html.Label("First Naem");
+    @Html.Label("First Name: ");
     @Html.TextBox("FirstName");
-    @Html.Label("Last Naem");
+    <br />
+    @Html.Label("Last Name: ");
     @Html.TextBox("LastName");
 
     <input type="submit" value="Add User">
