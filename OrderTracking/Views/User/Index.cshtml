@@ -1,17 +1,19 @@
 ﻿
-@model List<OrderTrackng.BusinessObjects.UserLogin> 
+@model List<OrderTrackng.BusinessObjects.UserLogin>
 <h2>List of Users</h2>
-<div>
-    <ul>
-        @foreach (var user in Model)
-        {
-        <li>
-            <p>First Name: </p>
-            @Html.Raw(@user.FirstName)
-            <p>Last Name: </p>
-            @Html.Raw(@user.LastName)
-        </li>
-        }
-    </ul>
-</div>
+<div ng-app="orderApp">
+   
+        <div ng-controller="userController">
+            <ul>
+
+                <li ng-repeat="user in users ">
+                    <p>First Name: </p>
+                    {{user.firstName}}
+                    <p>Last Name: </p>
+                    {{user.lastName}}
+
+            </ul>
+        </div>
+    </div>
+
 

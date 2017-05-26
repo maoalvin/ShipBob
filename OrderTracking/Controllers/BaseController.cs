@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 
 namespace OrderTracking.Controllers
@@ -38,11 +39,6 @@ namespace OrderTracking.Controllers
         }
 
 
-        public List<UserLogin> GetUsers()
-        {
-          //  ShipBobEntities1 sp = new OrderTrackng.BusinessObjects.ShipBobEntities1();
-            return Current.UserLogins.ToList();
-          //  return   ShipBobEntities1.Current.UserLogins.ToList();
-        }
+
     }
 }
