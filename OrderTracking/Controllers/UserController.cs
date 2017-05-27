@@ -16,6 +16,12 @@ namespace OrderTracking.Controllers
         public ActionResult Index()
         {
           //  var users = GetUsers();
+            return View(CurrentUser);
+        }
+
+        public ActionResult Login()
+        {
+            //  var users = GetUsers();
             return View();
         }
 
@@ -27,24 +33,41 @@ namespace OrderTracking.Controllers
             return View();
         }
 
-        public ActionResult CreateUser(string firstName, string lastName)
+        public void CreateUser(string firstName, string lastName)
         {
             UserLogin newUser = new UserLogin();
             newUser.FirstName = firstName;
             newUser.LastName = lastName;
 
 
-            Current.UserLogins.Add(newUser);
-            Current.SaveChanges();
+            CurrentContext.UserLogins.Add(newUser);
+            CurrentContext.SaveChanges();
 
-            return RedirectToAction("Index", "User");
+           
 
+        }
+
+        public string LoginUser(string firstName, string lastName)
+        {
+            if (CurrentContext.UserLogins.Any(u => u.FirstName == firstName && u.LastName == lastName))
+            {
+                CurrentUser = CurrentContext.UserLogins.Where(u => u.FirstName == firstName && u.LastName == lastName).FirstOrDefault();
+                return JsonConvert.SerializeObject(CurrentUser, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            }
+            else
+                return null;
         }
 
         public string GetUsers()
         {
 
-            return JsonConvert.SerializeObject(Current.UserLogins.ToList());
+            return JsonConvert.SerializeObject(CurrentContext.UserLogins.ToList(),new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
 
         }
 

@@ -15,7 +15,7 @@ namespace OrderTracking.Controllers
         // GET: Base
         private const string ShipBobContext = "OrderTrackng.BusinessObjects.ShipBobEntities1";
         protected static ShipBobEntities1 _current;
-        public static ShipBobEntities1 Current
+        public static ShipBobEntities1 CurrentContext
         {
             get
             {
@@ -39,13 +39,10 @@ namespace OrderTracking.Controllers
         }
 
         //protected UserLogin _currUser;
-        //public static UserLogin CurrentUser
-        //{
-        //    get
-        //    {
-        //        if()
-        //    }
-        //}
+        public static UserLogin CurrentUser
+        {
+            get;set;
+        }
 
 
 

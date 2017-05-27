@@ -274,6 +274,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\CreateOrder.cshtml" />
     <None Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

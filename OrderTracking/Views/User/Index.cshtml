@@ -1,19 +1,13 @@
 ﻿
-@model List<OrderTrackng.BusinessObjects.UserLogin>
-<h2>List of Users</h2>
+@model OrderTrackng.BusinessObjects.UserLogin
+<h2>Home</h2>
 <div ng-app="orderApp">
    
         <div ng-controller="userController as uc" ng-init="init()">
-            <ul>
-
-                <li ng-repeat="user in users">
-                    <p>First Name: </p>
-                    {{user.FirstName}}
-                    <p>Last Name: </p>
-                    {{user.LastName}}
-
-            </ul>
+            Hi @Html.Label(Model.FirstName)
         </div>
+
+        @Html.ActionLink("Creat Order", "CreateOrder", "Order")
     </div>
 
 

@@ -15,7 +15,12 @@ namespace OrderTracking.Controllers
             return View();
         }
 
-        public ActionResult CreateOrder(string streetAddress, string city, string state, string zip)
+        public ActionResult CreateOrder()
+        {
+            return View();
+        }
+
+        public void CreateNewOrder(string streetAddress, string city, string state, string zip)
         {
             OrderDetail newOrder = new OrderDetail();
 
@@ -23,16 +28,27 @@ namespace OrderTracking.Controllers
             newOrder.City = city;
             newOrder.State = state;
             newOrder.ZipCode = zip;
-            //Current..Add(newUser);
-            Current.SaveChanges();
+            newOrder.UserID = CurrentUser.UserID;
 
-            return RedirectToAction("Index", "User");
+
+            var trackingID= newOrder.GenerateTrackingID(10);
+            while(CurrentContext.OrderDetails.Any(o=>o.TrackingID==trackingID && o.UserID==CurrentUser.UserID))
+                trackingID = newOrder.GenerateTrackingID(10);
+
+            newOrder.TrackingID = trackingID;
+            CurrentContext.OrderDetails.Add(newOrder);
+            //Current..Add(newUser);
+            CurrentContext.SaveChanges();
+
+           
 
         }
 
+
+
         public List<OrderDetail> GetOrdersForUser(int userID)
         {
-            return Current.OrderDetails.Where(o => o.UserID == userID).ToList();
+            return CurrentContext.OrderDetails.Where(o => o.UserID == userID).ToList();
         }
     }
 }
