@@ -1,5 +1,5 @@
 ﻿var app = angular.module("orderApp", []);
-app.controller('orderController', ['$scope', '$http', function ($scope, $http) {
+app.controller('orderController', ['$window','$scope', '$http', function ($window,$scope, $http) {
     //var userLogin = this;
     $scope.init = function () {
 
