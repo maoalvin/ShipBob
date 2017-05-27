@@ -4,13 +4,15 @@ app.controller('orderController', ['$window','$scope', '$http', function ($windo
     $scope.init = function () {
 
         $scope.orders = [];
-        $http.get('/Order/GetOrdersForUser', { params: { userID: $scope.id } }).then(function (jsonResult) {
+        $http.get('/Order/GetOrdersForUser').then(function (jsonResult) {
 
             for (i = 0; i < jsonResult.data.length; i++)
                 $scope.orders.push(jsonResult.data[i]);
 
         });
     };
+
+
 
     $scope.submit = function () {
 

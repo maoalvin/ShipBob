@@ -1,0 +1,24 @@
+﻿
+<h2>ViewAll</h2>
+
+<div ng-app="orderApp">
+
+
+    <div ng-controller="orderController as order" ng-init="init()">
+        <table>
+
+            <tr ng-repeat="order in orders">
+                <td>
+                    <p><b>Tracking ID: </b></p>
+                    {{order.TrackingID}}
+                </td>
+                <td>
+                    <p><b>Address: </b></p>
+                    {{order.StreetAddress}}
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+

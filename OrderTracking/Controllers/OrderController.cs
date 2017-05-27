@@ -1,4 +1,5 @@
-﻿using OrderTrackng.BusinessObjects;
+﻿using Newtonsoft.Json;
+using OrderTrackng.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,11 @@ namespace OrderTracking.Controllers
     {
         // GET: Order
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult ViewAll()
         {
             return View();
         }
@@ -46,9 +52,14 @@ namespace OrderTracking.Controllers
 
 
 
-        public List<OrderDetail> GetOrdersForUser(int userID)
+        public string GetOrdersForUser()
         {
-            return CurrentContext.OrderDetails.Where(o => o.UserID == userID).ToList();
+            var ordersForUser= CurrentContext.OrderDetails.Where(o => o.UserID == CurrentUser.UserID).ToList();
+            return JsonConvert.SerializeObject(ordersForUser, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+          
         }
     }
 }

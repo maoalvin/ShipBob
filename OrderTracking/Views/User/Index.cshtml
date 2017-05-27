@@ -2,12 +2,14 @@
 @model OrderTrackng.BusinessObjects.UserLogin
 <h2>Home</h2>
 <div ng-app="orderApp">
-   
-        <div ng-controller="userController as uc" ng-init="init()">
-            Hi @Html.Label(Model.FirstName)
-        </div>
 
-        @Html.ActionLink("Creat Order", "CreateOrder", "Order")
+    <div ng-controller="userController as uc" ng-init="init()">
+        Hi @Html.Label(Model.FirstName)
     </div>
+
+    @Html.ActionLink("Creat Order", "CreateOrder", "Order")<br />
+    @Html.ActionLink("Search Order", "OrderLookup", "Order")<br />
+    @Html.ActionLink("View All Orders", "ViewAll", "Order")<br />
+</div>
 
 
