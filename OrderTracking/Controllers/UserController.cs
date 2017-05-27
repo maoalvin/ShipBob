@@ -43,15 +43,9 @@ namespace OrderTracking.Controllers
 
         public string GetUsers()
         {
-            var setting = new JsonSerializerSettings
-            {
-                ContractResolver = new
-                            CamelCasePropertyNamesContractResolver()
-            };
-            return JsonConvert.SerializeObject(Current.UserLogins.ToList(), Formatting.None, setting);
-            //  ShipBobEntities1 sp = new OrderTrackng.BusinessObjects.ShipBobEntities1();
-           // return this.Json(Current.UserLogins.ToList(),JsonRequestBehavior.AllowGet);
-            //  return   ShipBobEntities1.Current.UserLogins.ToList();
+
+            return JsonConvert.SerializeObject(Current.UserLogins.ToList());
+
         }
 
 

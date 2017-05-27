@@ -5,7 +5,19 @@
 
 <h2>Create New User</h2>
 
-@using (Html.BeginForm("CreateUser", "User"))
+<div ng-app="orderApp" ng-submit="submit()" ng-controller="userController as uc">
+    <form novalidate>
+        First Name:<br>
+        <input type="text" ng-model="firstName"><br>
+        Last Name:<br>
+        <input type="text" ng-model="lastName" />
+        <br><br>
+        <input type="submit" id="submit" value="Add User" />
+    </form>
+    
+</div>
+
+@*@using (Html.BeginForm("CreateUser", "User"))
 {
     @Html.Label("First Name: ");
     @Html.TextBox("FirstName");
@@ -14,5 +26,5 @@
     @Html.TextBox("LastName");
 
     <input type="submit" value="Add User">
-}
+}*@
 

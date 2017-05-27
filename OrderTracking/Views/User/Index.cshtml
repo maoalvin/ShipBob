@@ -3,14 +3,14 @@
 <h2>List of Users</h2>
 <div ng-app="orderApp">
    
-        <div ng-controller="userController">
+        <div ng-controller="userController as uc" ng-init="init()">
             <ul>
 
-                <li ng-repeat="user in users ">
+                <li ng-repeat="user in users">
                     <p>First Name: </p>
-                    {{user.firstName}}
+                    {{user.FirstName}}
                     <p>Last Name: </p>
-                    {{user.lastName}}
+                    {{user.LastName}}
 
             </ul>
         </div>
