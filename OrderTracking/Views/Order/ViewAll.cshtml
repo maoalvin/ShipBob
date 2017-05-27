@@ -4,21 +4,47 @@
 <div ng-app="orderApp">
 
 
-    <div ng-controller="orderController as order" ng-init="init()">
+    <div ng-controller="orderController as oc" ng-init="init()">
         <table>
 
             <tr ng-repeat="order in orders">
                 <td>
                     <p><b>Tracking ID: </b></p>
-                    {{order.TrackingID}}
+                    <input type="text" ng-model="order.TrackingID" />
+                   
                 </td>
                 <td>
                     <p><b>Address: </b></p>
-                    {{order.StreetAddress}}
+
+                    <input type="text" ng-model="order.StreetAddress" />
+
                 </td>
+
+                <td>
+                    <p><b>City: </b></p>
+
+                    <input type="text" ng-model="order.City" />
+
+                </td>
+                <td>
+                    <p><b>State: </b></p>
+
+                    <input type="text" ng-model="order.State" />
+
+                </td>
+                <td>
+                    <p><b>Zip: </b></p>
+
+                    <input type="text" ng-model="order.ZipCode" />
+
+                </td>
+                <td><input type="button" 
+                           ng-click="oc.updateOrder(order.OrderID,order.TrackingID, order.StreetAddress,order.City,order.State,order.ZipCode)"
+                            value="Update"/></td>
             </tr>
 
         </table>
+     
     </div>
 </div>
 

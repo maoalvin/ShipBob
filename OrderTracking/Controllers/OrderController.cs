@@ -26,6 +26,19 @@ namespace OrderTracking.Controllers
             return View();
         }
 
+
+        public void UpdateOrder(string id, string tracking, string address, string city, string state, string zip)
+        {
+            var orderID = Int32.Parse(id);
+            var orderToUpdate = CurrentContext.OrderDetails.Where(o => o.OrderID == orderID).FirstOrDefault();
+            orderToUpdate.TrackingID = tracking;
+            orderToUpdate.StreetAddress = address;
+            orderToUpdate.City = city;
+            orderToUpdate.State = state;
+            orderToUpdate.ZipCode = zip;
+            CurrentContext.SaveChanges();
+        }
+
         public void CreateNewOrder(string streetAddress, string city, string state, string zip)
         {
             OrderDetail newOrder = new OrderDetail();
