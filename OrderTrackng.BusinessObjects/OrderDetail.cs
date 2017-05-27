@@ -16,8 +16,11 @@ namespace OrderTrackng.BusinessObjects
     {
         public int OrderID { get; set; }
         public string TrackingID { get; set; }
-        public string Address { get; set; }
         public int UserID { get; set; }
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
     
         public virtual UserLogin UserLogin { get; set; }
     }

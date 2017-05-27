@@ -38,6 +38,15 @@ namespace OrderTracking.Controllers
             }
         }
 
+        //protected UserLogin _currUser;
+        //public static UserLogin CurrentUser
+        //{
+        //    get
+        //    {
+        //        if()
+        //    }
+        //}
+
 
 
     }

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>List of Orders</h2>
+<div ng-app="orderApp">
+
+    <div ng-controller="orderController as order" ng-init="init()">
+        <ul>
+
+            <li ng-repeat="order in orders">
+                <p>Tracking ID: </p>
+                {{order.trackingID}}
+                <p>Address: </p>
+                {{user.LastName}}
+
+        </ul>
+    </div>
+</div>
+
+

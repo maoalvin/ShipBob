@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "CreateOrder";
+}
+
+<h2>Create Order</h2>
+
+<div ng-app="orderApp" ng-submit="submit()" ng-controller="orderController as order">
+    <form novalidate>
+        Street Addres:<br>
+        <input type="text" ng-model="streetAddress"><br>
+        City:<br>
+        <input type="text" ng-model="city" />
+        State:<br>
+        <input type="text" ng-model="state" />
+        Zip:<br>
+        <input type="text" ng-model="zipCode" />
+        <br><br>
+        <input type="submit" id="submit" value="Add User" />
+    </form>
+
+</div>
+
