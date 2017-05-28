@@ -61,7 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DataEntities\OrderDetail.cs" />
+    <Compile Include="Editable\OrderDetail.cs" />
+    <Compile Include="Editable\UserLogin.cs" />
     <Compile Include="OrderDetail.cs">
       <DependentUpon>OrderTrackingEntities.tt</DependentUpon>
     </Compile>
