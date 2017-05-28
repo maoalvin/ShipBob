@@ -39,14 +39,14 @@ namespace OrderTracking.Controllers
             CurrentContext.SaveChanges();
         }
 
-        public void CreateNewOrder(string streetAddress, string city, string state, string zip)
+        public void CreateNewOrder(string streetAddress, string city, string state, string zipCode)
         {
             OrderDetail newOrder = new OrderDetail();
 
             newOrder.StreetAddress = streetAddress;
             newOrder.City = city;
             newOrder.State = state;
-            newOrder.ZipCode = zip;
+            newOrder.ZipCode = zipCode;
             newOrder.UserID = CurrentUser.UserID;
 
 

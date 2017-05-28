@@ -1,5 +1,5 @@
 ﻿
-<h2>ViewAll</h2>
+<h2>Current Orders</h2>
 
 <div ng-app="orderApp">
 
@@ -38,9 +38,7 @@
                     <input type="text" ng-model="order.ZipCode" />
 
                 </td>
-                <td><input type="button" 
-                           ng-click="oc.updateOrder(order.OrderID,order.TrackingID, order.StreetAddress,order.City,order.State,order.ZipCode)"
-                            value="Update"/></td>
+                <td style="vertical-align:bottom;padding-left:10px;"><a href ng-click="oc.updateOrder(order.OrderID,order.TrackingID, order.StreetAddress,order.City,order.State,order.ZipCode)">Update</a></td>
             </tr>
 
         </table>

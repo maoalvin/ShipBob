@@ -21,9 +21,7 @@ app.controller('orderController', ['$window', '$scope', '$http', function ($wind
             state: state,
             zip: zip
         };
-        $http.post('/Order/UpdateOrder', t).then(function (resp) {
-            $window.location.href = "/User/Index";
-        });
+        $http.post('/Order/UpdateOrder', t).then(function(resp){alert("Order Updated")});
     };
 
     $scope.submit = function () {
@@ -63,7 +61,10 @@ app.controller('userController', ['$window', '$scope', '$http', function ($windo
 
         var data = { firstName: $scope.firstName, lastName: $scope.lastName };
         var fn = $scope.firstName;
-        var response = $http.post('/User/CreateUser', data).then(function (dataResult) { $alert(dataResult.result); });
+        var response = $http.post('/User/CreateUser', data).then(function (resp) {
+            if (resp != null)
+                $window.location.href = "/User/Index";
+        });
 
     };
 

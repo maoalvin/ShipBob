@@ -39,7 +39,7 @@ namespace OrderTracking.Controllers
             newUser.FirstName = firstName;
             newUser.LastName = lastName;
 
-
+            CurrentUser = newUser;
             CurrentContext.UserLogins.Add(newUser);
             CurrentContext.SaveChanges();
 
